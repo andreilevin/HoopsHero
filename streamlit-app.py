@@ -33,7 +33,7 @@ st.markdown('''
 st.write('---')
 
 
-st.sidebar.image('figures/heroguy.png', width=100)
+st.sidebar.image('figures/heroguy.png', use_column_width=True)
 
 st.sidebar.markdown(" # Select Player from Team:")
 team = st.sidebar.selectbox("Team:",
