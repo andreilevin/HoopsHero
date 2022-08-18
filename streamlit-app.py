@@ -31,3 +31,11 @@ st.markdown('''
 #### 🏀 <span style="color:gray">Predict the market value of NBA players from in-season stats</span> 🏀
 ''', unsafe_allow_html=True)
 st.write('---')
+
+
+st.write("a logo and text next to eachother")
+col1, mid, col2 = st.beta_columns([1,1,20])
+with col1:
+    st.image('figures/heroguy.png', width=60)
+with col2:
+    st.write('A Name')
