@@ -34,8 +34,8 @@ st.write('---')
 
 
 st.write("a logo and text next to eachother")
-col1, mid, col2 = st.beta_columns([1,1,20])
+col1, mid, col2 = st.columns([1,1,20])
 with col1:
-    st.image('figures/heroguy.png', width=60)
+    st.image('figures/heroguy.png', width=100)
 with col2:
     st.write('A Name')
