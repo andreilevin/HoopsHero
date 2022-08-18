@@ -26,7 +26,7 @@ tm_to_team =  {
 team_to_tm =  {v: k for k, v in tm_to_team.items()}
 
 
-st.title("HoopsHype")
+st.title("Hoops Hero")
 st.markdown('''
 #### 🏀 <span style="color:gray">Predict the market value of NBA players from in-season stats</span> 🏀
 ''', unsafe_allow_html=True)
