@@ -31,3 +31,13 @@ st.markdown('''
 #### 🏀 <span style="color:gray">Predict the market value of NBA players from in-season stats</span> 🏀
 ''', unsafe_allow_html=True)
 st.write('---')
+
+
+st.sidebar.image('figures/heroguy.png', use_column_width=True)
+
+st.sidebar.markdown(" # Select Player from Team:")
+team = st.sidebar.selectbox("Team:",
+                                   sorted(team_to_tm.keys()))
+tm = team_to_tm[team]
+
+
