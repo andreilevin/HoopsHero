@@ -9,21 +9,29 @@ import numpy as np
 ##  Load and Prep Data                  ##
 ##########################################
 
-dfplayers = pd.read_csv('data/app_dfplayers.csv')
-dfteams = pd.read_csv('data/app_dfteams.csv')
+@st.cache
+def load_and_prep_players():
+    dfplayers = pd.read_csv('data/app_dfplayers.csv')
+    marketvalue_dict = {0:'0-5', 5:'5-10',10:'10-15',15:'15-20',20:'20-25',25:'25-30', 30:'30+'}
+    dfplayers['Market Value ($M)'] = dfplayers['Sal_class_predict'].apply(lambda val: marketvalue_dict[val])
+    dfplayers['Salary ($M)'] = dfplayers['SalFinal'].round(1).apply(lambda val:'<2' if val < 2 else val).astype(str)
+    dfplayers['Surplus Value ($M)'] = dfplayers['Surplus_value'].round(1).apply(lambda val:'0' if val == 0 else val).astype(str)
+    dfplayers['Height'] = dfplayers['Height'].apply(lambda val: val.split('-')[0] + "'" + val.split('-')[1] + "\"" )
+    dfplayers['Weight'] = dfplayers['Weight'].apply(lambda val: str(val) + ' lb')
+    dfplayers['Position'] = dfplayers['Pos']
+    dfplayers = dfplayers.set_index('Name', drop=False)
+    return dfplayers
 
-tm_to_team = {k:v for k,v in zip(dfteams['Team'],dfteams['Team_Name'])}
-team_to_tm = {k:v for k,v in zip(dfteams['Team_Name'],dfteams['Team'])}
-dfteams = dfteams.rename(columns={"Team":"Tm", "Team_Name":"Team", "Surplus_value":"Net Surplus Value ($M)"})
+@st.cache
+def load_and_prep_teams():
+    dfteams = pd.read_csv('data/app_dfteams.csv')
+    team_to_tm = {k:v for k,v in zip(dfteams['Team_Name'],dfteams['Team'])}
+    dfteams = dfteams.rename(columns={"Team":"Tm", "Team_Name":"Team", "Surplus_value":"Net Surplus Value ($M)"})
+    return dfteams, team_to_tm
 
-marketvalue_dict = {0:'0-5', 5:'5-10',10:'10-15',15:'15-20',20:'20-25',25:'25-30', 30:'30+'}
-dfplayers['Market Value ($M)'] = dfplayers['Sal_class_predict'].apply(lambda val: marketvalue_dict[val])
-dfplayers['Salary ($M)'] = dfplayers['SalFinal'].round(1).apply(lambda val:'<2' if val < 2 else val).astype(str)
-dfplayers['Surplus Value ($M)'] = dfplayers['Surplus_value'].round(1).apply(lambda val:'0' if val == 0 else val).astype(str)
-dfplayers['Height'] = dfplayers['Height'].apply(lambda val: val.split('-')[0] + "'" + val.split('-')[1] + "\"" )
-dfplayers['Weight'] = dfplayers['Weight'].apply(lambda val: str(val) + ' lb')
-dfplayers['Position'] = dfplayers['Pos']
-dfplayers = dfplayers.set_index('Name', drop=False)
+
+dfplayers = load_and_prep_players()
+dfteams, team_to_tm = load_and_prep_teams()
 
 cols = ['Name','Team','Position', 'Age', 'Height', 'Weight', 'Salary ($M)','Market Value ($M)', 'Surplus Value ($M)',]
 
@@ -67,12 +75,11 @@ def color_surplusvalue(val):
         color = 'lightgreen'
     return 'background-color: %s' % color
 
-heading_properties = [('font-size', '16px'),('align', 'center'), ('text-align', 'center'),
+heading_properties = [('font-size', '16px'),('text-align', 'center'),
                       ('color', 'black'),  ('font-weight', 'bold'),
-                      ('background', 'mediumturquoise'),('border', '1.2px solid')
-                     ]
-cell_properties = [('font-size', '16px'), ('align', 'center'),('text-align', 'center')
-              ]
+                      ('background', 'mediumturquoise'),('border', '1.2px solid')]
+
+cell_properties = [('font-size', '16px'),('text-align', 'center')]
 
 dfstyle = [{"selector": "th", "props": heading_properties},
                {"selector": "td", "props": cell_properties}]
@@ -100,12 +107,13 @@ st.sidebar.markdown(" ## About")
 st.sidebar.markdown("This prediction model places each NBA player into one of seven market value buckets, reflecting the expected yearly salary range if they were to sign a new contract today.  It was trained on free agent data from the preceding five years, using a curated set of basic player stats and advanced metrics."  )              
 st.sidebar.info("Read more about how the model works on my [Github](https://github.com/andreilevin/HoopsHero).", icon="ℹ️")
 
+
 ##########################################
 ## Player Tab                           ##
 ##########################################
 
 with tab_player:
-    player = st.selectbox("Choose a player (or click and start typing):", dfplayers.Name)
+    player = st.selectbox("Choose a player (or click below and start typing):", dfplayers.Name, index =508)
     
     player_pos = dfplayers[dfplayers.Name == player].Pos.to_list()[0]
     player_sal_class_predict = dfplayers[dfplayers.Name == player].Sal_class_predict.to_list()[0]
@@ -156,7 +164,7 @@ with tab_player:
 ##########################################    
     
 with tab_team:
-    team = st.selectbox("Choose a team (or click and start typing):", dfteams.Team)
+    team = st.selectbox("Choose a team (or click below and start typing):", dfteams.Team, index=1)
    
     styler_team = (dfplayers[dfplayers.Team == team_to_tm[team]][cols].style
                           .set_properties(**{'background': 'azure', 'border': '1.2px solid'})
@@ -165,6 +173,7 @@ with tab_team:
                           .applymap(color_surplusvalue, subset=pd.IndexSlice[:, ['Surplus Value ($M)']])                                                    )
     st.table(styler_team)
 
+    
 ##########################################
 ## Explore Tab                          ##
 ##########################################
@@ -172,7 +181,7 @@ with tab_team:
 with tab_explore:
     
     ########## 
-    expand_allplayers = st.expander("Most Overvalued/Undervalued Players", expanded=True)
+    expand_allplayers = st.expander("Most Overvalued/Undervalued Players", expanded=False)
     
     with expand_allplayers:
         
@@ -278,16 +287,17 @@ with tab_explore:
 
     
     ##########    
-    expand_histograms = st.expander("Market Value Distribution")
+    expand_histograms = st.expander("Salaries & Market Values")
     
     with expand_histograms:
         
-        st.markdown("Distribution of salaries and predicted market values for all 605 NBA players who played in 2021-22.")
+        st.write('''##### <span style="color:darkorchid"> Distribution of salaries and predicted market values \
+                     for all 605 NBA players who played in the 2021-22 season.</span>''', unsafe_allow_html=True)
         
-        st.markdown("#####  Player Salaries:")
+        st.markdown("####  Player Salaries:")
         st.image('figures/salaries.png')
         
-        st.markdown("#####  Player Market Values:")
+        st.markdown("####  Player Market Values:")
         st.image('figures/marketvalues.png')
 
         
