@@ -348,7 +348,7 @@ with tab_faq:
                                     (and why should I care?)''')
     with expand_faq1:
         
-        st.write('''It is well known among basketball lovers that an NBA player's salary often doesn't reflect his true market value.  Most players play on guaranteed multi-year contracts, over the course of which their performance may improve or deteriorate, often dramatically;  yet their salaries remain locked-in.  A method for determining any player's fair market value could prove worthwhile both for team executives (to exploit inefficiencies and assemble a competitive team on a budget) and for regular fans (to quantify how overpaid or underpaid their favorite players really are).
+        st.write('''It's well known among basketball lovers that an NBA player's salary often doesn't reflect his true market value.  Most players play on guaranteed multi-year contracts, over the course of which their performance may improve or deteriorate, often dramatically;  yet their salaries remain locked-in.  A useful method for determining any player's fair market value could prove worthwhile both for team executives (to exploit inefficiencies and assemble a competitive team on a budget) and for regular fans (to quantify how overpaid or underpaid their favorite players really are).
         
 What, then, is an NBA player's true market value?  To answer this most pressing of society's questions, I came up with a simple but surprisingly powerful approach. Every year, out of several hundred NBA players, about 150 become free agents and sign new contracts.  My idea here was to focus exclusively on this subset of players in line for new contract, to see if I could train a model to predict their new salaries from their previous year's stats.  
 
@@ -430,5 +430,5 @@ Empirically speaking, if a player is talented enough to be eligible for a salary
     expand_faq9 = st.expander("🏀   Where can I see the code for the model?")
     with expand_faq9:
         
-        st.write('''Glad you asked! 😌 It's all on my [Github](https://github.com/andreilevin/HoopsHero/). ''', unsafe_allow_html=True)
+        st.write('''Glad you asked! 🤓 It's all on my [Github](https://github.com/andreilevin/HoopsHero/). ''', unsafe_allow_html=True)
 
