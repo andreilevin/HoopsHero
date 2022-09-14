@@ -388,7 +388,7 @@ After settling on final model hyperparameter values using the validation set, I 
 8. <font color=blue>**Win Shares (WS):**</font>  An advanced stat that aims to assign credit for team wins to individual player performance. Win Shares are calculated using player, team and league-wide statistics, with the end result that the sum of player win shares on a given team will be roughly equal to that team’s win total for the season
 
 
-It was heartening to see that this set of features included both rate stats (measuring player performance per minute or per possession) and volume stats (taking into account playing time as well), since a truly valuable player should demonstrate good performance on both. For anyone curious about how other features such as age, height, and shooting percentage correlate with market value, check out the feature-target plots in my (modeling notebook)[https://github.com/andreilevin/HoopsHero/blob/main/3-model.ipynb].''', unsafe_allow_html=True)
+It was heartening to see that this set of features included both rate stats (measuring player performance per minute or per possession) and volume stats (taking into account playing time as well), since a truly valuable player should demonstrate good performance on both. For anyone curious about how other features such as age, height, and shooting percentage correlate with market value, check out the feature-target plots in my [modeling notebook](https://github.com/andreilevin/HoopsHero/blob/main/3-model.ipynb).''', unsafe_allow_html=True)
     
     ##########
     expand_faq5 = st.expander('''🏀   So, how good is this model really?''')
