@@ -326,7 +326,7 @@ with tab_explore:
     
     with expand_histograms:
         
-        st.write('''##### <span style="color:darkorchid"> Distribution of salaries and predicted market values \
+        st.write('''##### <span style="color:blue"> Distribution of salaries and predicted market values \
                      for all 605 NBA players who played in the 2021-22 season.</span>''', unsafe_allow_html=True)
         
         st.markdown("####  Player Salaries:")
