@@ -385,7 +385,7 @@ After settling on final model hyperparameter values using the validation set, I 
 5. <font color=blue>**Usage Percentage:**</font>  The fraction of team possessions with the player on the court that end in him shooting the ball, turning it over, or getting to the free throw line. 
 6. <font color=blue>**Offensive Box Plus/Minus (OBPM):**</font> A box score-based metric that estimates a player’s contribution to the team offense while that player is on the court, measured in points above league average per 100 possessions played. 
 7. <font color=blue>**Value Over Replacement Player (VORP):**</font>  Similar to Offensive Box Plus/Minus above, but also takes into account a player's defensive contributions and scales with playing time and number of games played.
-8. <font color=blue>**Win Shares (WS):**</font>  An advanced stat that aims to assign credit for team wins to individual player performance. Win Shares are calculated using player, team and league-wide statistics, with the end result that the sum of player win shares on a given team will be roughly equal to that team’s win total for the season
+8. <font color=blue>**Win Shares (WS):**</font>  An advanced stat that aims to assign credit for team wins to individual player performance. Win Shares are calculated using player, team and league-wide statistics, with the end result that the sum of player win shares on a given team will be roughly equal to that team’s win total for the season.
 
 
 It was heartening to see that this set of features included both rate stats (measuring player performance per minute or per possession) and volume stats (taking into account playing time as well), since a truly valuable player should demonstrate good performance on both. For anyone curious about how other features such as age, height, and shooting percentage correlate with market value, check out the feature-target plots in my [modeling notebook](https://github.com/andreilevin/HoopsHero/blob/main/3-model.ipynb).''', unsafe_allow_html=True)
@@ -404,10 +404,10 @@ However, it would do no good to be 68% accurate if the remaining 32% misclassifi
         st.write('''A perfect model with 100% classification accuracy would only have elements on the diagonal of the confusion matrix. We see indeed that 68% of the players in our holdout set lie on the diagonal (note too that most free agents end up making \$0-5M in actual salary). The 32% remaining misclassified players make up the off-diagonal elements. A certain amount of misclassification is to be expected, since our set of 8 features cannot possibly account for the myriad quantifiable and unquantifiable variables that actually determine a player's salary. However, the combination of 68% accuracy with a general lack of extreme off-diagonal entries indicates that the model is pretty reliable, and can be trusted to not embarrass me in job interviews.''', unsafe_allow_html=True)
         
     ##########
-    expand_faq6 = st.expander("🏀   How do you calculate a player's 'surplus value'?")
+    expand_faq6 = st.expander("🏀   How do you calculate a player's \"surplus value\"?")
     with expand_faq6:
         
-        st.write(''' 'Surplus value' is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
+        st.write(''' "Surplus value" is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
 
 * If the player's salary falls within his market value bucket, we define his surplus value as zero
 * If the player's salary is higher/lower than his market value, his surplus value is the difference between his salary and the higher/lower end of his market value bucket. ''', unsafe_allow_html=True)
@@ -421,7 +421,7 @@ However, it would do no good to be 68% accurate if the remaining 32% misclassifi
 Empirically speaking, if a player is talented enough to be eligible for a salary of \$30M+, teams will generally offer the highest salary available to him, rather than a few million less (the NBA is very much a star-driven league, so teams try to avoid potentially antagonizing star players or their agents).  As far as market value goes, there is thus hardly any difference between a \$30M/year player and a \$40M/year player, and it makes sense to group all such "max players" into a single \$30M+ bucket.  ''', unsafe_allow_html=True)
     
     ##########
-    expand_faq8 = st.expander("🏀   How are the players 'most similar' to a given player determined?")
+    expand_faq8 = st.expander("🏀   How are the players \"most similar\" to a given player determined?")
     with expand_faq8:
         
         st.write('''A nice thing about the Random Forest Classifier model is that in addition to predicting a player's market value, it also gives a probablity estimate for that prediction (in technical terms, the scikit-learn 'predict_proba' method returns the percentage of trees in the forest that voted for that class). To get the most similar players to Player X, I looked at all the players at the same position in the same market value bucket, and sorted them by closest probability estimate to Player X. ''', unsafe_allow_html=True)
