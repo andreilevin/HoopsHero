@@ -2,20 +2,6 @@
 
 #### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
-## Codebase
-
-This NBA player market value prediction model was written in python; the code resides in four sequentially run jupyter notebooks in the main directory.  Each notebook reads and writes to various tables stored as csv files in the `data/` folder.
-
-* **1-scrape**:   A built-from-scratch web scraper that parses [basketball-reference.com](www.basketball-reference.com) for player stats and salaries.   
-
-* **2-clean**:   Cleans and merges the raw data from `1-scrape` into organized data tables to be used as input for the model.
-
-* **3-model**:   Uses the cleaned free agent data from `2-clean` to create and train the prediction model.
-
-* **4-prepare**:  Scrapes more player data from the 2021-22 NBA season and uses the saved model parameters from `3-model` to generate market value predictions for all current players.   
-
-Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to streamlit.
-
 ## Introduction:  How much is an NBA player really worth?
 
 If you're anything like me, you may have watched an NBA basketball game at some point and thought to yourself, "Wow, this young player has really blossomed into a star!  I'm so glad we got him on such a cheap contract."   Or perhaps in your frustration you've thrown the remote control at your TV and grumbled:  "How can my team be paying this bum $35 million dollars to play so badly?  We will never financially recover from this."
@@ -29,6 +15,20 @@ Teams pay millions of dollars annually to General Managers whose job it is to as
 What, then, is an NBA player's true market value?  To answer this most pressing of society's questions, I came up with a simple but surprisingly powerful approach. Every year, out of several hundred NBA players, about 150 become free agents and sign new contracts.  My idea here was to focus exclusively on this subset of players in line for new contract, to see if I could train a model to predict their new salaries from their previous year's stats.  
 
 By looking at free agents over the course of several years, we can use machine learning techniques to uncover a mapping from a player's stats in the last year of his contract to his resulting new salary the following year.  The key insight is that once we have this mapping in hand, we can then retroactively apply it to ALL players (not just free agents).  In other words, we can answer the question: "If Player X were a free agent this year, what kind of new salary would he command based on his current stats?"  It is important to note that my model is not making a normative judgment ("this is a good player/ this is a bad player").  Rather, it is saying: "in the recent past, players in line for a new contract— with stats like those of Player X this year— could expect to get Salary Y."
+
+## Codebase
+
+This NBA player market value prediction model was written in python; the code resides in four sequentially run jupyter notebooks in the main directory.  Each notebook reads and writes to various tables stored as csv files in the `data/` folder.
+
+* **1-scrape**:   A built-from-scratch web scraper that parses [basketball-reference.com](www.basketball-reference.com) for player stats and salaries.   
+
+* **2-clean**:   Cleans and merges the raw data from `1-scrape` into organized data tables to be used as input for the model.
+
+* **3-model**:   Uses the cleaned free agent data from `2-clean` to create and train the prediction model.
+
+* **4-prepare**:  Scrapes more player data from the 2021-22 NBA season and uses the saved model parameters from `3-model` to generate market value predictions for all current players.   
+
+Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to streamlit.
 
 ## Frequently Asked Questions 🔎 
 
