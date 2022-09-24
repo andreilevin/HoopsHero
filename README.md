@@ -1,6 +1,6 @@
 # Hoops Hero
 
-#### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
+### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
 ## Introduction:  How much is an NBA player really worth?
 
@@ -74,7 +74,7 @@ A perfect model with 100% classification accuracy would only have elements on th
 
 ###   🏀   How do you calculate a player's "surplus value"?
 
-"Surplus value'" is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
+"Surplus value" is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
 
 * If the player's salary falls within his market value bucket, we define his surplus value as zero
 * If the player's salary is higher/lower than his market value, his surplus value is the difference between his salary and the higher/lower end of his market value bucket. 
