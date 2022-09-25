@@ -28,7 +28,7 @@ This prediction model was written in python; the code resides in four sequential
 
 * **4-prepare**:  Scrapes more player data from the 2021-22 NBA season and uses the saved model parameters from `3-model` to generate market value predictions for all current players.   
 
-Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to Streamlit.
+Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the interactive web app to Streamlit.  It can be accessed at: [hoopshero.streamlitapp.com](https://hoopshero.streamlitapp.com/)
 
 ## Frequently Asked Questions 🔎 
 
