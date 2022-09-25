@@ -1,6 +1,6 @@
 # Hoops Hero
 
-## 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
+### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
 ## Introduction:  How much is an NBA player really worth?
 
