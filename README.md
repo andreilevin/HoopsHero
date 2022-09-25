@@ -14,11 +14,11 @@ Teams pay millions of dollars annually to General Managers whose job it is to as
 
 What, then, is an NBA player's true market value?  To answer this most pressing of society's questions, I came up with a simple but surprisingly powerful approach. Every year, out of several hundred NBA players, about 150 become free agents and sign new contracts.  My idea here was to focus exclusively on this subset of players in line for new contract, to see if I could train a model to predict their new salaries from their previous year's stats.  
 
-By looking at free agents over the course of several years, we can use machine learning techniques to uncover a mapping from a player's stats in the last year of his contract to his resulting new salary the following year.  The key insight is that once we have this mapping in hand, we can then retroactively apply it to ALL players (not just free agents).  In other words, we can answer the question: "If Player X were a free agent this year, what kind of new salary would he command based on his current stats?"  It is important to note that my model is not making a normative judgment ("this is a good player/ this is a bad player").  Rather, it is saying: "in the recent past, players in line for a new contract— with stats like those of Player X this year— could expect to get Salary Y."
+By looking at free agents over the course of several years, we can use machine learning techniques to uncover a mapping from a player's stats in the last year of his contract to his resulting new salary the following year.  The key insight is that once we have this mapping in hand, we can then retroactively apply it to ALL players (not just free agents).  In other words, we can answer the question: "*If Player X were a free agent this year*, what kind of new salary might he command based on his current stats?"  It is important to note that my model is not making a normative judgment ("this is a good player/ this is a bad player").  Rather, it is saying: "in the recent past, players in line for a new contract— with stats like those of Player X this year— could expect to get Salary Y."
 
 ## Codebase
 
-This NBA player market value prediction model was written in python; the code resides in four sequentially run jupyter notebooks in the main directory.  Each notebook reads and writes to various tables stored as csv files in the `data/` folder.
+This prediction model was written in python; the code resides in four sequentially run jupyter notebooks in the main directory.  Each notebook reads and writes to various tables stored as csv files in the `data/` folder.
 
 * **1-scrape**:   A built-from-scratch web scraper that parses [basketball-reference.com](www.basketball-reference.com) for player stats and salaries.   
 
@@ -28,13 +28,13 @@ This NBA player market value prediction model was written in python; the code re
 
 * **4-prepare**:  Scrapes more player data from the 2021-22 NBA season and uses the saved model parameters from `3-model` to generate market value predictions for all current players.   
 
-Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to streamlit.
+Finally, the python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to Streamlit.
 
 ## Frequently Asked Questions 🔎 
 
 ###   🏀  What machine learning model did you use?
 
-I tried various regression, classification, and hybrid approaches and found that using  a Random Forest Classifier as my predictive model gave accurate and meaningful results. A Random Forest is an ensemble model consisting of thousands of Decision Trees, with each tree constructed from a random bootstrapped sample of players in the training set; each node on each tree is split using a random sample of the feature (input) variables. The values of hyperparameters such as maximum tree depth and  number of features considered at each node were arrived at via grid search optimization.
+I tried various regression, classification, and hybrid approaches and found that using  a Random Forest Classifier as my predictive model gave accurate and meaningful results. A Random Forest is an ensemble model consisting of thousands of Decision Trees, with each tree constructed from a bootstrapped sample of players in the training set; each node on each tree is split using a random sample of the feature (input) variables. The values of hyperparameters such as maximum tree depth and  number of features considered at each node were arrived at via grid search optimization.
 
 For my classification target variable, I grouped the free agent next-year salaries into seven buckets: $0-5M, $5-10M, $10-15M, $15-20M, $20-25M, $25-30M, and $30M+, and chose accuracy as my optimization metric.  Importantly, I made sure to balance these seven classes before model training, to prevent model bias toward the dominant class (after all, over half of all players earn $0-5M, so a reasonably accurate but utterly useless model could just naively guess this class every time!).
 
@@ -87,4 +87,4 @@ Empirically speaking, if a player is talented enough to be eligible for a salary
 
 ###   🏀   How are the players "most similar" to a given player determined?
 
-The nice thing about the Random Forest Classifier model is that in addition to predicting a player's market value, it also gives a probablity estimate for that prediction (in technical terms, the scikit-learn `predict_proba` method returns the percentage of trees in the forest that voted for that class). To get the most similar players to Player X, I looked at all the players at the same position in the same market value bucket, and sorted them by closest probability estimate to Player X. 
+A nice thing about the Random Forest Classifier model is that in addition to predicting a player's market value, it also gives a probablity estimate for that prediction (in technical terms, the scikit-learn `predict_proba` method returns the percentage of trees in the forest that voted for that class). To get the most similar players to Player X, I looked at all the players at the same position in the same market value bucket, and sorted them by closest probability estimate to Player X. 
