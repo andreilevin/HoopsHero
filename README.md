@@ -1,10 +1,10 @@
 # Hoops Hero
 
-### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
+## 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
 ## Introduction:  How much is an NBA player really worth?
 
-If you're anything like me, you may have watched an NBA basketball game at some point and thought to yourself, "Wow, this young player has really blossomed into a star!  I'm so glad we got him on such a cheap contract."   Or perhaps in your frustration you've thrown the remote control at your TV and grumbled:  "How can my team be paying this bum $35 million dollars to play so badly?  We will never financially recover from this."
+If you're anything like me, you may have watched an NBA basketball game at some point and thought to yourself, "Wow, this young player has really blossomed into a star!  I'm so glad we got him on such a cheap contract."   Or perhaps in your frustration you've thrown the remote control at your TV and grumbled:  "How can my team be paying this bum $35 million dollars to play so badly?  [We will never financially recover from this](https://c.tenor.com/yNUNki5O7YMAAAAd/joe-exotic-financially-recover.gif)."
 
 Such outburtsts, while often emotional and beer-fueled, do get to the heart of an interesting issue in the NBA, and in professional sports in general:  players outperform or underperform their salaries all the time, sometimes by a lot.  One reason for this is that most NBA contracts run for multiple years at a time and are often fully guaranteed.  Over the course of a multi-year contract a player's performance may improve or deteriorate, or he may get injured;  yet his salary remains locked-in.  Another reason is that NBA bylaws include certain artifical constraints on player salaries, distorting the market.  For example, new players entering the league through the draft must sign rookie contracts with fixed, low salaries, even if they're LeBron James.  Similarly, there are maximum allowable league salaries that cannot be exceeded by any player (yes, also even LeBron James).  
 
