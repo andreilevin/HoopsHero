@@ -74,10 +74,12 @@ A perfect model with 100% classification accuracy would only have elements on th
 
 ###   🏀   How do you calculate a player's "surplus value"?
 
-"Surplus value" is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
+"Surplus value" is my conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
 
-* If the player's salary falls within his market value bucket, we define his surplus value as zero
+* If the player's salary falls within his market value bucket, I define his surplus value as zero
 * If the player's salary is higher/lower than his market value, his surplus value is the difference between his salary and the higher/lower end of his market value bucket. 
+
+Calculated this way, a player's true absolute surplus value will sometimes be underestimated, but never overestimated.
 
 ###   🏀   Why is $30M+ the largest bucket?  Aren't some player salaries much higher? 
 
