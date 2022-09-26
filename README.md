@@ -1,5 +1,10 @@
 # Hoops Hero
 
+<p ><img align="left" src="https://raw.githubusercontent.com/andreilevin/HoopsHero/main/figures/heroguy.png" 
+      title="Confusion Matrix" width="200"/></p>
+
+
+
 ### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
 ## Introduction:  How much is an NBA player really worth?
