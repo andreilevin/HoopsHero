@@ -18,7 +18,7 @@ By looking at free agents over the course of several years, we can use machine l
 
 ## Codebase
 
-This prediction model was written in python; the code resides in four sequentially run jupyter notebooks in the main directory.  Each notebook reads and writes to various tables stored as csv files in the `data/` folder.
+This prediction model was written in Python; the code resides in four sequentially run Jupyter Notebooks in the main directory.  Each notebook reads from and writes to various tables stored as .csv files in the `data/` folder.
 
 * **1-scrape**:   A built-from-scratch web scraper that parses [basketball-reference.com](www.basketball-reference.com) for player stats and salaries.   
 
