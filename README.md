@@ -1,7 +1,7 @@
 # Hoops Hero
 
 <p ><img align="left" src="https://raw.githubusercontent.com/andreilevin/HoopsHero/main/figures/heroguy.png" 
-      title="Confusion Matrix" width="200"/></p>
+      title="Confusion Matrix" width="180"/></p>
 
 
 
