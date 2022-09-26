@@ -148,7 +148,7 @@ with tab_player:
     player_url = 'https://www.basketball-reference.com' + dfplayers[dfplayers.Name == player]['ID'].to_list()[0]                   
     
     st.write(f'''
-         ##### <div style="text-align: center"> In the 2021-22 NBA season, <span style="color:green">[{player}]({player_url})</span> earned a salary of <span style="color:blue"> {player_salary}   </span> </div>
+         ##### <div style="text-align: center"> In the 2021-22 NBA season, <span style="color:blue">[{player}]({player_url})</span> earned a salary of <span style="color:blue"> {player_salary}   </span> </div>
          
           ##### <div style="text-align: center"> According to our model, his market value was <span style="color:blue">{player_marketvalue}</span> </div>
          ''', unsafe_allow_html=True)
@@ -407,10 +407,13 @@ However, it would do no good to be 68% accurate if the remaining 32% misclassifi
     expand_faq6 = st.expander("🏀   How do you calculate a player's \"surplus value\"?")
     with expand_faq6:
         
-        st.write(''' "Surplus value" is a conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
+        st.write(''' "Surplus value" is my conservative estimate of the difference between a player's market value and his salary.  I calculate it as follows: 
 
-* If the player's salary falls within his market value bucket, we define his surplus value as zero
-* If the player's salary is higher/lower than his market value, his surplus value is the difference between his salary and the higher/lower end of his market value bucket. ''', unsafe_allow_html=True)
+* If the player's salary falls within his market value bucket, I define his surplus value as zero
+* If the player's salary is higher/lower than his market value, his surplus value is the difference between his salary and the higher/lower end of his market value bucket. 
+
+Calculated this way, a player's true absolute surplus value will sometimes be underestimated, but never overestimated.
+''', unsafe_allow_html=True)
      
     ##########
     expand_faq7 = st.expander("🏀   Why is $30M+ the largest bucket?  Aren't some player salaries much higher? ")
