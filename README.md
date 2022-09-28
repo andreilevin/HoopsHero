@@ -6,7 +6,7 @@
 
 ### 📌 [See the web app in action here!](https://hoopshero.streamlitapp.com)
 
-## <ins>Introduction</ins>:  How much is an NBA player really worth?
+## <b>Introduction</b>:  How much is an NBA player really worth?
 
 If you're anything like me, you may have watched an NBA basketball game at some point and thought to yourself, "Wow, this young player has really blossomed into a star!  I'm so glad we got him on such a cheap contract."   Or perhaps in your frustration you've thrown the remote control at your TV and grumbled:  "How can my team be paying this bum $35 million dollars to play so badly?  [We will never financially recover from this](https://c.tenor.com/yNUNki5O7YMAAAAd/joe-exotic-financially-recover.gif)."
 
