@@ -5,7 +5,7 @@
 
 ### 📌 [See the web app in action here](https://hoopshero.streamlit.app)
 
-<u>**Update (Nov 2022):**</u>  I am thrilled to announce that **[Streamlit has selected Hoops Hero](https://streamlit.io/gallery?category=sports-fun)** to be featured in their gallery of awesome projects!
+<u>**Update (Nov 2022):**</u>  I am excited to announce that **[Streamlit has selected Hoops Hero](https://streamlit.io/gallery?category=sports-fun)** to be featured in their gallery of awesome projects!
 
 ## <b>Introduction</b>:  How much is an NBA player really worth?
 
@@ -33,7 +33,7 @@ This prediction model was written in Python; the code resides in four sequential
 
 * **4-prepare**:  Scrapes more player data from the 2021-22 NBA season and uses the saved model parameters from `3-model` to generate market value predictions for all current players.   
 
-Finally, the Python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to Streamlit.  The interactive web app can be accessed at: [hoopshero.streamlit.app](https://hoopshero.streamlit.app/)
+Finally, the Python script `streamlit-app.py` reads in the predictions from `4-prepare` and deploys the web app to Streamlit.  The interactive web app (recently selected for the [Streamlit Gallery](https://streamlit.io/gallery?category=sports-fun)) can be accessed at [hoopshero.streamlit.app](https://hoopshero.streamlit.app/) — try it out for yourself and explore the various tabs!
 
 ## Frequently Asked Questions 🔎 
 
