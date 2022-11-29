@@ -3,10 +3,9 @@
 <p ><img align="left" src="https://raw.githubusercontent.com/andreilevin/HoopsHero/main/figures/heroguy_cropped.png" 
       title="Hoops Hero" width="160"/></p>
 
-
 ### 📌 [See the web app in action here](https://hoopshero.streamlit.app)
 
-<u>**Update**</u>:  I am excited to announce that **[Streamlit has selected Hoops Hero](https://streamlit.io/gallery?category=sports-fun)** to be featured in their gallery of awesome projects!
+<u>**Update (Nov 2022):**</u>  I am excited to announce that **[Streamlit has selected Hoops Hero](https://streamlit.io/gallery?category=sports-fun)** to be featured in their gallery of awesome projects!
 
 ## <b>Introduction</b>:  How much is an NBA player really worth?
 
