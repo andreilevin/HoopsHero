@@ -45,7 +45,7 @@ For my classification target variable, I grouped the free agent next-year salari
 
 ###   🏀   How was the prediction model trained?
 
-To train my model, I collected data for all free agents from 2015 to 2020 (the NBA salary cap had a massive spike in a 2015 due to a sudden influx of money from a new TV deal, so it made sense to use that as the cutoff year). For each player, I  used his stats in the final year of his old contract as the feature (input) variables and his new salary the following year as the target (output) variable. I also normalized each salary by that year's salary cap , since teams evaluate salaries as a percentage of the salary cap, rather than by the specific dollar amount. 
+To train my model, I collected data for all free agents from 2015 to 2020 (the NBA salary cap had a massive spike in 2015 due to a sudden influx of money from a new TV deal, so it made sense to use that as the cutoff year). For each player, I  used his stats in the final year of his old contract as the feature (input) variables and his new salary the following year as the target (output) variable. I also normalized each salary by that year's salary cap , since teams evaluate salaries as a percentage of the salary cap, rather than by the specific dollar amount. 
 
 This gave me 744 total entries (or about 150 free agents per year).  First, I took all the entries from 2020 and siloed them away from my own prying eyes, to use later as a holdout set for testing final model performance.  I then used stratified sampling to split the remaining entries from 2015 to 2019 into a training set (for learning model parameters) and a validation set (for comparing different models and tuning hyperparameters).   
 
