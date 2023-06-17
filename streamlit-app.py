@@ -301,7 +301,7 @@ with tab_explore:
         with teamcol1:            
             styler_teamsurplus1= (dfteams[['Team',"Net Surplus Value ($M)"]]
                                   .sort_values("Net Surplus Value ($M)",ascending=False)[0:15]
-                                  .style.set_precision(1)
+                                  .style.format(precision=1)   #.style.set_precision(1)
                                   .set_properties(**{'background': 'cornsilk', 'border': '1.2px solid'})
                                   .hide(axis='index')
                                   .set_table_styles(dfstyle)
@@ -312,7 +312,7 @@ with tab_explore:
         with teamcol2:
             styler_teamsurplus2= (dfteams[['Team',"Net Surplus Value ($M)"]]
                                   .sort_values("Net Surplus Value ($M)",ascending=False)[15:]
-                                  .style.set_precision(1)
+                                   .style.format(precision=1)      #.style.set_precision(1)
                                   .set_properties(**{'background': 'cornsilk', 'border': '1.2px solid'})
                                   .hide(axis='index')
                                   .set_table_styles(dfstyle)
@@ -320,6 +320,9 @@ with tab_explore:
                                  )
             st.table(styler_teamsurplus2)
 
+   
+            
+            
     
     ##########    
     expand_histograms = st.expander("Salaries & Market Values")
